@@ -394,15 +394,45 @@
   }
   .proj-cover{
     width:100%;
+    height:340px;
     border-bottom:1px solid var(--blueprint);
+    position:relative;
+    overflow:hidden;
+    background:var(--paper-alt);
   }
   .proj-cover img{
     display:block;
     width:100%;
-    height:340px;
+    height:100%;
     object-fit:cover;
     background:var(--paper-alt);
   }
+  .proj-cover.slideshow img{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity 0.7s ease;
+  }
+  .proj-cover.slideshow img.active{opacity:1;}
+  .slide-dots{
+    position:absolute;
+    bottom:12px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:7px;
+    z-index:2;
+  }
+  .slide-dots button{
+    width:7px;
+    height:7px;
+    padding:0;
+    border-radius:50%;
+    border:1px solid var(--paper);
+    background:rgba(243,241,234,0.45);
+    cursor:pointer;
+  }
+  .slide-dots button.active{background:var(--brass); border-color:var(--brass);}
   .proj-gallery{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
@@ -410,10 +440,10 @@
     margin-top:16px;
   }
   .proj-gallery .gallery-item img{height:100px;}
-  .no-crop img{object-fit:contain;}
+  .proj-cover.no-crop img, .gallery-item.no-crop img{object-fit:contain;}
   @media (max-width:640px){
     .proj-gallery{grid-template-columns:repeat(2, 1fr);}
-    .proj-cover img{height:230px;}
+    .proj-cover{height:230px;}
   }
   .proj-empty{
     padding:28px 24px;
@@ -736,17 +766,24 @@
         <div class="proj-grid">
 
           <div class="proj-card reveal">
-            <figure class="proj-cover no-crop">
-              <img src="assets/mustang-back.jpg" alt="3D scan mesh of the restored Mustang vent piece, full length view" loading="lazy">
+            <figure class="proj-cover no-crop slideshow">
+              <img class="active" src="assets/mustang-back.jpg" alt="3D scan mesh of the restored Mustang vent piece, full length view" loading="lazy">
+              <img src="assets/mustang-front.jpg" alt="Mustang vent mesh, compact top-down view" loading="lazy">
+              <img src="assets/mustang-side.jpg" alt="Mustang vent mesh, side profile view" loading="lazy">
+              <div class="slide-dots">
+                <button class="active" aria-label="Show image 1"></button>
+                <button aria-label="Show image 2"></button>
+                <button aria-label="Show image 3"></button>
+              </div>
             </figure>
             <div class="proj-tag-strip"><span>Repair / Restoration</span><span>Job 01</span></div>
             <div class="proj-body">
               <h3>Mustang Vent — Scan & Reprint</h3>
               <p>Reverse-engineered a fractured Mustang vent assembly to restore it to production geometry. Captured the front and back surfaces via 3D scanning, then registered and stitched both scans into a single watertight mesh in Mesh Inspector, resolving the gaps, overlaps, and surface noise the fracture had introduced. Additively manufactured the corrected geometry on an SLS platform in nylon carbon-fiber, chosen for its rigidity and heat resistance in an automotive vent application.</p>
               <div class="proj-gallery">
-                <figure class="gallery-item"><img src="assets/mustang-back.jpg" alt="Mustang vent mesh, angled full-length view" loading="lazy"><figcaption>Merged mesh, full length</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/mustang-front.jpg" alt="Mustang vent mesh, compact top-down view" loading="lazy"><figcaption>Cleaned mesh, top view</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/mustang-side.jpg" alt="Mustang vent mesh, side profile view" loading="lazy"><figcaption>Side profile</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/mustang-back.jpg" alt="Mustang vent mesh, angled full-length view" loading="lazy"><figcaption>Merged mesh, full length</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/mustang-front.jpg" alt="Mustang vent mesh, compact top-down view" loading="lazy"><figcaption>Cleaned mesh, top view</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/mustang-side.jpg" alt="Mustang vent mesh, side profile view" loading="lazy"><figcaption>Side profile</figcaption></figure>
               </div>
               <div class="proj-materials">
                 <span class="chip">3D Scanning</span>
@@ -758,19 +795,30 @@
           </div>
 
           <div class="proj-card reveal">
-            <figure class="proj-cover no-crop">
-              <img src="assets/furniture-front.jpg" alt="Carved furniture mesh, front detail view" loading="lazy">
+            <figure class="proj-cover no-crop slideshow">
+              <img class="active" src="assets/furniture-front.jpg" alt="Carved furniture mesh, front detail view" loading="lazy">
+              <img src="assets/furniture-back.jpg" alt="Furniture piece mesh, plain back surface" loading="lazy">
+              <img src="assets/furniture-top.jpg" alt="Furniture piece mesh, elongated side profile with carved trim" loading="lazy">
+              <img src="assets/furniture-bottom.jpg" alt="Furniture piece mesh, bottom angle showing carved texture" loading="lazy">
+              <img src="assets/furniture-meshed.jpg" alt="Monitor displaying the meshed model selection in scanning software" loading="lazy">
+              <div class="slide-dots">
+                <button class="active" aria-label="Show image 1"></button>
+                <button aria-label="Show image 2"></button>
+                <button aria-label="Show image 3"></button>
+                <button aria-label="Show image 4"></button>
+                <button aria-label="Show image 5"></button>
+              </div>
             </figure>
             <div class="proj-tag-strip"><span>Repair / Restoration</span><span>Job 02</span></div>
             <div class="proj-body">
               <h3>Furniture Piece — CNC Wood Replica</h3>
               <p>Reverse-engineered a chipped ornamental furniture component to produce a dimensionally accurate wood replacement. Scanned and registered the front and back surfaces of the damaged section, merged the point clouds into a single mesh, and smoothed surface artifacts to recover the original carved profile. Programmed a two-stage CNC toolpath in VCarve — a rough clearing pass followed by a finish pass — and set fixed registration markers to flip the stock and mirror-cut the reverse face, holding tight alignment between both machined surfaces before final cutting on the CNC router.</p>
               <div class="proj-gallery">
-                <figure class="gallery-item"><img src="assets/furniture-front.jpg" alt="Carved furniture mesh, front detail view" loading="lazy"><figcaption>Cleaned mesh, front detail</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/furniture-back.jpg" alt="Furniture piece mesh, plain back surface" loading="lazy"><figcaption>Back surface, smoothed</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/furniture-top.jpg" alt="Furniture piece mesh, elongated side profile with carved trim" loading="lazy"><figcaption>Full-length side profile</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/furniture-bottom.jpg" alt="Furniture piece mesh, bottom angle showing carved texture" loading="lazy"><figcaption>Carved detail, bottom angle</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/furniture-meshed.jpg" alt="Monitor displaying the meshed model selection in scanning software" loading="lazy"><figcaption>Mesh review on screen</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/furniture-front.jpg" alt="Carved furniture mesh, front detail view" loading="lazy"><figcaption>Cleaned mesh, front detail</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/furniture-back.jpg" alt="Furniture piece mesh, plain back surface" loading="lazy"><figcaption>Back surface, smoothed</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/furniture-top.jpg" alt="Furniture piece mesh, elongated side profile with carved trim" loading="lazy"><figcaption>Full-length side profile</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/furniture-bottom.jpg" alt="Furniture piece mesh, bottom angle showing carved texture" loading="lazy"><figcaption>Carved detail, bottom angle</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/furniture-meshed.jpg" alt="Monitor displaying the meshed model selection in scanning software" loading="lazy"><figcaption>Mesh review on screen</figcaption></figure>
               </div>
               <div class="proj-materials">
                 <span class="chip">3D Scanning</span>
@@ -782,8 +830,21 @@
           </div>
 
           <div class="proj-card reveal">
-            <figure class="proj-cover no-crop">
-              <img src="assets/concrete-scene-1.jpg" alt="Full SketchUp model of the concrete batch plant, with silos, conveyors, and mixing unit" loading="lazy">
+            <figure class="proj-cover no-crop slideshow">
+              <img class="active" src="assets/concrete-scene-1.jpg" alt="Full SketchUp model of the concrete batch plant, with silos, conveyors, and mixing unit" loading="lazy">
+              <img src="assets/concrete-scene-3.jpg" alt="Concrete plant model, full isometric view" loading="lazy">
+              <img src="assets/concrete-scene-4.jpg" alt="Close-up of the mixer unit where conveyors meet" loading="lazy">
+              <img src="assets/concrete-scene-5.jpg" alt="Close-up of the aggregate storage hopper and horizontal conveyor" loading="lazy">
+              <img src="assets/concrete-scene-6.jpg" alt="Powder tanks viewed from the mixer platform" loading="lazy">
+              <img src="assets/concrete-scene-7.jpg" alt="Powder tanks close-up from an alternate angle" loading="lazy">
+              <div class="slide-dots">
+                <button class="active" aria-label="Show image 1"></button>
+                <button aria-label="Show image 2"></button>
+                <button aria-label="Show image 3"></button>
+                <button aria-label="Show image 4"></button>
+                <button aria-label="Show image 5"></button>
+                <button aria-label="Show image 6"></button>
+              </div>
             </figure>
             <div class="proj-tag-strip"><span>Scale Modeling</span><span>Job 03</span></div>
             <div class="proj-body">
@@ -805,17 +866,24 @@
           </div>
 
           <div class="proj-card reveal">
-            <figure class="proj-cover no-crop">
-              <img src="assets/pcb-controller-render.jpg" alt="Rendered PCB design for the gaming controller board, with button footprints and routed traces" loading="lazy">
+            <figure class="proj-cover no-crop slideshow">
+              <img class="active" src="assets/pcb-controller-render.jpg" alt="Rendered PCB design for the gaming controller board, with button footprints and routed traces" loading="lazy">
+              <img src="assets/pcb-boards-raw.jpg" alt="Milled copper boards after isolation cutting, one with solder mask applied" loading="lazy">
+              <img src="assets/pcb-train-track.jpg" alt="Model preview of the miniature train-track control board" loading="lazy">
+              <div class="slide-dots">
+                <button class="active" aria-label="Show image 1"></button>
+                <button aria-label="Show image 2"></button>
+                <button aria-label="Show image 3"></button>
+              </div>
             </figure>
             <div class="proj-tag-strip"><span>Electronics Fabrication</span><span>Job 04</span></div>
             <div class="proj-body">
               <h3>PCB Fabrication — Controller & Train Track</h3>
               <p>Fabricated custom printed circuit boards through CNC isolation milling, routing precision copper traces directly from the design file, then applied solder mask to protect the pathways and bring each board to a finished, production-style standard. Delivered two functional builds from this process: a custom gaming controller board with routed button and connector pads, and a compact control board for a miniature model-train track system.</p>
               <div class="proj-gallery">
-                <figure class="gallery-item"><img src="assets/pcb-controller-render.jpg" alt="Rendered PCB design for the gaming controller board, with button footprints and routed traces" loading="lazy"><figcaption>Controller board design, CAD render</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/pcb-boards-raw.jpg" alt="Milled copper boards after isolation cutting, one with solder mask applied" loading="lazy"><figcaption>Milled boards, solder mask applied</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/pcb-train-track.jpg" alt="Model preview of the miniature train-track control board" loading="lazy"><figcaption>Train-track board, model preview</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/pcb-controller-render.jpg" alt="Rendered PCB design for the gaming controller board, with button footprints and routed traces" loading="lazy"><figcaption>Controller board design, CAD render</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/pcb-boards-raw.jpg" alt="Milled copper boards after isolation cutting, one with solder mask applied" loading="lazy"><figcaption>Milled boards, solder mask applied</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/pcb-train-track.jpg" alt="Model preview of the miniature train-track control board" loading="lazy"><figcaption>Train-track board, model preview</figcaption></figure>
               </div>
               <div class="proj-materials">
                 <span class="chip">PCB Milling</span>
@@ -984,6 +1052,23 @@
     navLinks.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }));
+
+  document.querySelectorAll('.proj-cover.slideshow').forEach(cover => {
+    const slides = cover.querySelectorAll('img');
+    const dots = cover.querySelectorAll('.slide-dots button');
+    let current = 0;
+    function show(i){
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+    dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+    if(slides.length > 1){
+      setInterval(() => show((current + 1) % slides.length), 4500);
+    }
+  });
 
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
