@@ -371,6 +371,7 @@
     margin-top:16px;
   }
   .proj-gallery .gallery-item img{height:100px;}
+  .no-crop img{object-fit:contain;}
   @media (max-width:640px){
     .proj-gallery{grid-template-columns:repeat(2, 1fr);}
     .proj-cover img{height:230px;}
@@ -716,7 +717,7 @@
 
           <div class="proj-card reveal">
             <figure class="proj-cover">
-              <img src="assets/furniture-rough-cut.jpg" alt="Rough-cut furniture replacement piece machined from pink foam stock, held up next to the toolpath preview on a laptop" loading="lazy">
+              <img src="assets/furniture-front.jpg" alt="Carved furniture mesh, front detail view" loading="lazy" style="object-position:center 55%;">
             </figure>
             <div class="proj-tag-strip"><span>Repair / Restoration</span><span>Job 02</span></div>
             <div class="proj-body">
@@ -728,7 +729,6 @@
                 <figure class="gallery-item"><img src="assets/furniture-top.jpg" alt="Furniture piece mesh, elongated side profile with carved trim" loading="lazy"><figcaption>Full-length side profile</figcaption></figure>
                 <figure class="gallery-item"><img src="assets/furniture-bottom.jpg" alt="Furniture piece mesh, bottom angle showing carved texture" loading="lazy"><figcaption>Carved detail, bottom angle</figcaption></figure>
                 <figure class="gallery-item"><img src="assets/furniture-meshed.jpg" alt="Monitor displaying the meshed model selection in scanning software" loading="lazy"><figcaption>Mesh review on screen</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/furniture-rough-cut.jpg" alt="Rough-cut pass on pink foam stock next to the toolpath preview" loading="lazy"><figcaption>Rough-cut pass, foam stock</figcaption></figure>
               </div>
               <div class="proj-materials">
                 <span class="chip">3D Scanning</span>
@@ -740,7 +740,7 @@
           </div>
 
           <div class="proj-card reveal">
-            <figure class="proj-cover">
+            <figure class="proj-cover no-crop">
               <img src="assets/concrete-scene-1.jpg" alt="Full SketchUp model of the concrete batch plant, with silos, conveyors, and mixing unit" loading="lazy">
             </figure>
             <div class="proj-tag-strip"><span>Scale Modeling</span><span>Job 03</span></div>
@@ -748,12 +748,11 @@
               <h3>Concrete Batch Plant — Scale Model</h3>
               <p>Engineered a fully dimensioned assembly model of a concrete batching plant in SketchUp, modeling the powder tanks, mixer unit, inclined and horizontal belt conveyors, and aggregate storage system to real-world-matched tolerances. Validated component fit and overall system geometry, then scaled the assembly for additive manufacturing and produced it as a cohesive physical model on the SLS printer.</p>
               <div class="proj-gallery">
-                <figure class="gallery-item"><img src="assets/concrete-scene-2.jpg" alt="Concrete plant model, side angle with powder tanks and conveyor" loading="lazy"><figcaption>Powder tanks & conveyor</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/concrete-scene-3.jpg" alt="Concrete plant model, full isometric view" loading="lazy"><figcaption>Full assembly, isometric</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/concrete-scene-4.jpg" alt="Close-up of the mixer unit where conveyors meet" loading="lazy"><figcaption>Mixer system, close-up</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/concrete-scene-5.jpg" alt="Close-up of the aggregate storage hopper and horizontal conveyor" loading="lazy"><figcaption>Aggregate storage hopper</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/concrete-scene-6.jpg" alt="Powder tanks viewed from the mixer platform" loading="lazy"><figcaption>Powder tanks, platform view</figcaption></figure>
-                <figure class="gallery-item"><img src="assets/concrete-scene-7.jpg" alt="Powder tanks close-up from an alternate angle" loading="lazy"><figcaption>Powder tanks, detail angle</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/concrete-scene-3.jpg" alt="Concrete plant model, full isometric view" loading="lazy"><figcaption>Full assembly, isometric</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/concrete-scene-4.jpg" alt="Close-up of the mixer unit where conveyors meet" loading="lazy"><figcaption>Mixer system, close-up</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/concrete-scene-5.jpg" alt="Close-up of the aggregate storage hopper and horizontal conveyor" loading="lazy"><figcaption>Aggregate storage hopper</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/concrete-scene-6.jpg" alt="Powder tanks viewed from the mixer platform" loading="lazy"><figcaption>Powder tanks, platform view</figcaption></figure>
+                <figure class="gallery-item no-crop"><img src="assets/concrete-scene-7.jpg" alt="Powder tanks close-up from an alternate angle" loading="lazy"><figcaption>Powder tanks, detail angle</figcaption></figure>
               </div>
               <div class="proj-materials">
                 <span class="chip">SketchUp</span>
@@ -765,7 +764,7 @@
 
           <div class="proj-card reveal">
             <figure class="proj-cover">
-              <img src="assets/pcb-boards-raw.jpg" alt="Milled PCB boards with copper traces, one shaped like a game controller and one with a green solder mask and button pads" loading="lazy">
+              <img src="assets/pcb-controller-render.jpg" alt="Rendered PCB design for the gaming controller board, with button footprints and routed traces" loading="lazy" style="object-position:center 38%;">
             </figure>
             <div class="proj-tag-strip"><span>Electronics Fabrication</span><span>Job 04</span></div>
             <div class="proj-body">
@@ -802,52 +801,12 @@
           <h3>Wearable Textile Triboelectric Glove for Grasp Force & Pressure Sensing</h3>
 
           <figure class="research-cover">
-            <img src="assets/glove-heatmap-a.jpg" alt="Sensing glove with fingertip force sensors and a corresponding pressure-distribution heatmap of a hand" loading="lazy">
-            <figcaption>The sensing glove alongside a pressure-distribution map generated from live contact data.</figcaption>
+            <img src="assets/glove-sensors-b.jpg" alt="White triboelectric sensing glove, front and back views, with sensors mounted at each fingertip" loading="lazy">
           </figure>
 
           <p>Designing a wearable textile triboelectric glove that senses grasp force and pressure during object interaction, with the Flex Laboratory at Purdue's Edwardson School of Industrial Engineering. The sensing stack layers a laser-induced graphene (LIG) conductive electrode with a vertically aligned zinc-oxide (ZnO) nanorod array on a flexible polyimide substrate, wired through conductive fabric to cut down on signal noise.</p>
           <p>ZnO's high-aspect-ratio nanorods increase contact area for stronger triboelectric charge generation and add a piezoelectric response, so the sensor reacts to both contact and mechanical deformation. LIG's porous, laser-patterned graphene structure keeps the electrode conductive through repeated bending — important for something worn on a moving hand.</p>
           <p>I built a multi-channel data-acquisition system on an Arduino Nano BLE to digitize and transmit sensor signals over Bluetooth, then ran voltage-spike testing across all five fingers individually. Each finger produced repeatable voltage spikes on contact and pressure, confirming the sensing layers were working as intended.</p>
-
-          <div class="research-gallery">
-            <figure class="gallery-item">
-              <img src="assets/glove-sensors-a.jpg" alt="White glove with black triboelectric sensors mounted on each fingertip" loading="lazy">
-              <figcaption>Fingertip sensors integrated into the glove</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/glove-sensors-b.jpg" alt="Glove lined with tan conductive fabric strips along each finger" loading="lazy">
-              <figcaption>Conductive fabric wiring, routed to reduce noise</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/zno-nanorods.jpg" alt="Scanning electron microscope image of vertically aligned zinc oxide nanorods" loading="lazy">
-              <figcaption>ZnO nanorod array, SEM image</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/lig-graphene.jpg" alt="Gloved hands holding a sheet of laser-induced graphene" loading="lazy">
-              <figcaption>Laser-induced graphene conductive layer</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/triboelectric-modes.jpg" alt="Diagram of four triboelectric sensing modes: vertical contact-separation, contact-sliding, single-electrode, and freestanding" loading="lazy">
-              <figcaption>Triboelectric sensing modes referenced in the design</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/arduino-wiring.jpg" alt="Arduino board wired to the triboelectric sensors on the glove for signal testing" loading="lazy">
-              <figcaption>Arduino Nano BLE signal-testing setup</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/voltage-index.jpg" alt="Voltage versus time plot for the index finger, showing repeated spikes on contact" loading="lazy">
-              <figcaption>Index finger — voltage vs. time</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/voltage-middle.jpg" alt="Voltage versus time plot for the middle finger, showing repeated spikes on contact" loading="lazy">
-              <figcaption>Middle finger — voltage vs. time</figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/voltage-thumb.jpg" alt="Voltage versus time plot for the thumb, showing repeated spikes on contact" loading="lazy">
-              <figcaption>Thumb — voltage vs. time</figcaption>
-            </figure>
-          </div>
 
           <p class="research-credits">With Don Perera and Prof. Wenzhuo Wu, Flex Laboratory, Purdue University. Presented as a research poster; applications include robotic hand control, ergonomic monitoring, and digital-twin data collection.</p>
         </div>
@@ -871,12 +830,12 @@
           <p>Evaluated and compared the printability of ABS-R and Nylon Carbon Fiber through controlled 3D printing tests, assessing surface finish, warping, ease of printing, and structural strength. Combined qualitative observation with quantitative measurement to recommend the optimal material based on print quality and overall usability.</p>
           <div class="research-gallery">
             <figure class="gallery-item">
-              <img src="assets/mustang-front.jpg" alt="Nylon carbon-fiber SLS print, cleaned mesh top view" loading="lazy">
-              <figcaption>Nylon CF print, SLS output</figcaption>
+              <img src="assets/abs-r-strength-sample.jpg" alt="ABS-R printed test strip after strength testing, showing the torn cross-section" loading="lazy">
+              <figcaption>ABS-R sample, post-strength test</figcaption>
             </figure>
             <figure class="gallery-item">
-              <img src="assets/mustang-side.jpg" alt="Nylon carbon-fiber SLS print, side profile" loading="lazy">
-              <figcaption>Nylon CF print, side profile</figcaption>
+              <img src="assets/nylon-cf-strength-sample.jpg" alt="Nylon carbon-fiber printed test strip after strength testing, showing the torn cross-section" loading="lazy">
+              <figcaption>Nylon CF sample, post-strength test</figcaption>
             </figure>
           </div>
           <a class="research-link" href="https://sites.google.com/view/naviresearch/home" target="_blank" rel="noopener noreferrer">View full write-up →</a>
